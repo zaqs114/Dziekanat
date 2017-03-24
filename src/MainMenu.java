@@ -23,7 +23,8 @@ public class MainMenu extends JDialog {
         edytujInformacjeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ModificationType modifyType=new ModificationType();
+                ModificationTypeMenu modifyType=new ModificationTypeMenu();
+                modifyType.pack();
                 modifyType.setVisible(true);
             }
         });

@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ModificationType extends JDialog {
+public class ModificationTypeMenu extends JDialog {
     private JPanel contentPane;
     private JButton studenciButton;
     private JButton grupyPrzedmiotówButton;
@@ -10,14 +12,20 @@ public class ModificationType extends JDialog {
     private JButton buttonOK;
 
 
-    public ModificationType() {
+    public ModificationTypeMenu() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        wróćButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+            }
+        });
     }
 
     public static void main(String[] args) {
-        ModificationType dialog = new ModificationType();
+        ModificationTypeMenu dialog = new ModificationTypeMenu();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
