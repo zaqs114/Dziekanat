@@ -19,7 +19,16 @@ public class ModificationTypeMenu extends JDialog {
         wróćButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
+                dispose();
+            }
+        });
+        studenciButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                StudentMenu studentMenu=new StudentMenu();
+                studentMenu.pack();
+                studentMenu.setVisible(true);
             }
         });
     }
