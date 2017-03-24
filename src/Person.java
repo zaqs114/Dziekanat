@@ -22,16 +22,6 @@ public class Person {
 
     private String surname;
 
-    public String getBirthYear() {
-        return birthYear;
-    }
-
-    public void setBirthYear(String birthYear) {
-        this.birthYear = birthYear;
-    }
-
-    private String birthYear;
-
     public int getPesel() {
         return pesel;
     }
