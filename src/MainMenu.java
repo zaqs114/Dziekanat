@@ -4,10 +4,10 @@ import java.awt.event.ActionListener;
 
 public class MainMenu extends JDialog {
     private JPanel contentPane;
-    private JButton button1;
+    private JButton edytujInformacjeButton;
     private JButton exit;
-    private JButton button3;
-    private JButton button4;
+    private JButton wyświetlStatystykiButton;
+    private JButton wyświetlBazęButton;
 
 
     public MainMenu() {
@@ -18,6 +18,13 @@ public class MainMenu extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+        edytujInformacjeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ModificationType modifyType=new ModificationType();
+                modifyType.setVisible(true);
             }
         });
     }
