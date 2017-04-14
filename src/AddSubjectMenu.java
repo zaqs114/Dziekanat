@@ -24,14 +24,22 @@ public class AddSubjectMenu extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Subjects subjects = new Subjects();
-                subjects.setSubjectName(nazwaPrzedmiotuTextField.getText());
-                subjects.setSubjectID(oznaczeniePrzedmiotuTextField.getText());
-                String fileName= "przedmioty.txt";
                 try {
-                    subjects.writeToFile();
+                    if (subjects.isThereDuplicate(oznaczeniePrzedmiotuTextField.getText())==false){
+                        subjects.setSubjectName(nazwaPrzedmiotuTextField.getText());
+                        subjects.setSubjectID(oznaczeniePrzedmiotuTextField.getText());
+                        subjects.writeToFile();
+                        JOptionPane.showMessageDialog(contentPane,"Pomyślnie dodano przedmiot.");
+                        dispose();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(contentPane, "W bazie jest już przedmiot o tym ID. Zmień ID i spróbuj ponownie.");
+                    }
+
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+
             }
         });
     }

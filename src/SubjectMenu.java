@@ -29,6 +29,15 @@ public class SubjectMenu extends JDialog {
 
             }
         });
+        usuńButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DeleteSubjectMenu deleteSubjectMenu = new DeleteSubjectMenu();
+                deleteSubjectMenu.pack();
+                deleteSubjectMenu.setLocationRelativeTo(null);
+                deleteSubjectMenu.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {

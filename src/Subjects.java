@@ -1,6 +1,5 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.StringTokenizer;
 
 
 /**
@@ -26,13 +25,42 @@ public class Subjects {
     try {
         subjectsFile = new FileWriter("przedmioty.txt",true);
         subjectsFile.write(getSubjectName());
+        subjectsFile.write('\t');
         subjectsFile.write(getSubjectID());
+        subjectsFile.write('\n');
     }
     finally{
         if(subjectsFile!= null){
             subjectsFile.close();
         }
     }
+    }
+
+    public boolean isThereDuplicate(String phraseToCheck) throws IOException {
+        BufferedReader file = new BufferedReader(new FileReader("przedmioty.txt"));
+        try{
+            String line = file.readLine();
+            while (line != null) {
+                StringTokenizer stringTokenizer = new StringTokenizer(line, "\t");
+                while (stringTokenizer.hasMoreTokens()) {
+                    String subjectName = stringTokenizer.nextToken();
+                    String subjectID = stringTokenizer.nextToken();
+                    line = file.readLine();
+                    if(phraseToCheck.equalsIgnoreCase(subjectID)==true){
+                        return true;
+                    }
+                    else{
+                        continue;
+                    }
+
+                }
+            }
+        }finally{
+            if (file != null) {
+                file.close();
+            }
+        }
+        return false;
     }
 
     private String subjectName;
