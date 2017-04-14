@@ -4,10 +4,10 @@ public class AddStudentMenu extends JDialog {
     private JPanel contentPane;
     private JButton wróćButton;
     private JButton dodajButton;
-    private JTextField textField1;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
+    private JTextField imieTextField;
+    private JTextField numerAlbumuTextField;
+    private JTextField peselTextField;
+    private JTextField nazwiskoTextField;
 
     public AddStudentMenu() {
         setContentPane(contentPane);

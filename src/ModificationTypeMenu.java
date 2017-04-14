@@ -27,6 +27,7 @@ public class ModificationTypeMenu extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 StudentMenu studentMenu=new StudentMenu();
                 studentMenu.pack();
+                studentMenu.setLocationRelativeTo(null);
                 studentMenu.setVisible(true);
             }
         });

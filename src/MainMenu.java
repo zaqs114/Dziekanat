@@ -25,6 +25,7 @@ public class MainMenu extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 ModificationTypeMenu modifyType=new ModificationTypeMenu();
                 modifyType.pack();
+                modifyType.setLocationRelativeTo(null);
                 modifyType.setVisible(true);
             }
         });
@@ -33,6 +34,7 @@ public class MainMenu extends JDialog {
     public static void main(String[] args) {
         MainMenu dialog = new MainMenu();
         dialog.pack();
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
         System.exit(0);
     }
