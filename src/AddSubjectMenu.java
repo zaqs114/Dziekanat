@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class AddSubjectMenu extends JDialog {
     private JPanel contentPane;
@@ -25,7 +26,12 @@ public class AddSubjectMenu extends JDialog {
                 Subjects subjects = new Subjects();
                 subjects.setSubjectName(nazwaPrzedmiotuTextField.getText());
                 subjects.setSubjectID(oznaczeniePrzedmiotuTextField.getText());
-
+                String fileName= "przedmioty.txt";
+                try {
+                    subjects.writeToFile();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }
