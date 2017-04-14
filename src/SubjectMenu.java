@@ -2,39 +2,37 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ModMenu extends JDialog {
+public class SubjectMenu extends JDialog {
     private JPanel contentPane;
-    private JButton studenciButton;
-    private JButton grupyPrzedmiotówButton;
-    private JButton pracownicyButton;
-    private JButton przedmiotyButton;
-    private JButton wróćButton;
     private JButton buttonOK;
+    private JButton buttonCancel;
+    private JButton dodajButton;
+    private JButton usuńButton;
 
-
-    public ModMenu() {
+    public SubjectMenu() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        wróćButton.addActionListener(new ActionListener() {
+        buttonCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-        studenciButton.addActionListener(new ActionListener() {
+        dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StudentMenu studentMenu=new StudentMenu();
-                studentMenu.pack();
-                studentMenu.setLocationRelativeTo(null);
-                studentMenu.setVisible(true);
+                AddSubjectMenu addSubjectMenu=new AddSubjectMenu();
+                addSubjectMenu.pack();
+                addSubjectMenu.setLocationRelativeTo(null);
+                addSubjectMenu.setVisible(true);
+
             }
         });
     }
 
     public static void main(String[] args) {
-        ModMenu dialog = new ModMenu();
+        SubjectMenu dialog = new SubjectMenu();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);

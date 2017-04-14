@@ -25,7 +25,7 @@ public class MainMenu extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 ModificationTypeMenu modifyType=new ModificationTypeMenu();
                 modifyType.pack();
-                modifyType.setLocationRelativeTo(null);
+                modifyType.setLocationRelativeTo(null); //ta linijka centruje okno
                 modifyType.setVisible(true);
             }
         });

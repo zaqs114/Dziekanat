@@ -31,11 +31,22 @@ public class ModificationTypeMenu extends JDialog {
                 studentMenu.setVisible(true);
             }
         });
+        przedmiotyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    SubjectMenu subjectMenu= new SubjectMenu();
+                    subjectMenu.pack();
+                    subjectMenu.setLocationRelativeTo(null); //ta linijka centruje okno
+                    subjectMenu.setVisible(true);
+                }
+        });
+
     }
 
     public static void main(String[] args) {
         ModificationTypeMenu dialog = new ModificationTypeMenu();
         dialog.pack();
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
         System.exit(0);
     }

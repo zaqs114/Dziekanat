@@ -5,9 +5,11 @@ public class AddStudentMenu extends JDialog {
     private JButton wróćButton;
     private JButton dodajButton;
     private JTextField imieTextField;
-    private JTextField numerAlbumuTextField;
-    private JTextField peselTextField;
     private JTextField nazwiskoTextField;
+    private JCheckBox checkBox1;
+    private JCheckBox checkBox2;
+    private JCheckBox checkBox3;
+    private JCheckBox checkBox4;
 
     public AddStudentMenu() {
         setContentPane(contentPane);
