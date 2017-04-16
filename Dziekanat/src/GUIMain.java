@@ -70,6 +70,14 @@ public class GUIMain extends JDialog {
 		getContentPane().add(btnWywietlStatystyki);
 		
 		JButton btnWywietlBaz = new JButton("Wy\u015Bwietl baz\u0119");
+		btnWywietlBaz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GUIShowBase guiShowBase=new GUIShowBase();
+				guiShowBase.setLocationRelativeTo(null);
+				guiShowBase.setVisible(true);
+				dispose();
+			}
+		});
 		btnWywietlBaz.setBounds(167, 275, 116, 23);
 		getContentPane().add(btnWywietlBaz);
 		
