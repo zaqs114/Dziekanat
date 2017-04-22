@@ -55,10 +55,26 @@ public class GUIModificationType extends JDialog {
 		getContentPane().add(btnWr);
 		
 		JButton btnStudenci = new JButton("Studenci");
+		btnStudenci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUIStudents guiStudents = new GUIStudents();
+				guiStudents.setLocationRelativeTo(null); //ta linijka centruje okno
+				guiStudents.setVisible(true);
+                dispose();
+			}
+		});
 		btnStudenci.setBounds(10, 212, 89, 23);
 		getContentPane().add(btnStudenci);
 		
 		JButton btnPracownicy = new JButton("Pracownicy");
+		btnPracownicy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GUIEmployee guiEmployee = new GUIEmployee();
+				guiEmployee.setLocationRelativeTo(null);
+				guiEmployee.setVisible(true);
+				dispose();
+			}
+		});
 		btnPracownicy.setBounds(109, 212, 103, 23);
 		getContentPane().add(btnPracownicy);
 		

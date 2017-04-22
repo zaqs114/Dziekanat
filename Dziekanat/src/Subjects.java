@@ -20,10 +20,9 @@ public class Subjects {
     public void writeToFile() throws IOException{
    
     FileWriter subjectsFile = new FileWriter("przedmioty.txt",true);
-        subjectsFile.write(getSubjectName());
-        subjectsFile.write('\t');
-        subjectsFile.write(getSubjectID());
-        subjectsFile.write('\n');
+        subjectsFile.write(getSubjectName()+'\t');
+        subjectsFile.write(getSubjectID()+'\n');
+
         subjectsFile.close();
     }
 
@@ -33,7 +32,7 @@ public class Subjects {
             String line = file.readLine();
             while (line != null) {
             	String[] subjectData = line.split("\\s+");
-            	if(phraseToCheck.equalsIgnoreCase(subjectData[1])==true){
+            	if(subjectData[1]==null||phraseToCheck.equalsIgnoreCase(subjectData[1])==true){
             		file.close();
             		return true;
             	}

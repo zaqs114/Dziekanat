@@ -29,7 +29,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 
-public class GUIDeleteSubject extends JDialog {
+public class GUIStudentDelete extends JDialog {
+
 	private JTextField deletePositionTextField;
 
 	/**
@@ -37,11 +38,9 @@ public class GUIDeleteSubject extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			GUIDeleteSubject dialog = new GUIDeleteSubject();
+			GUIStudentDelete dialog = new GUIStudentDelete();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setLocationRelativeTo(null);
 			dialog.setVisible(true);
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,8 +49,8 @@ public class GUIDeleteSubject extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public GUIDeleteSubject() throws IOException{
-		Useful useful = new Useful();
+	public GUIStudentDelete() throws IOException{
+Useful useful = new Useful();
 		
 		setBounds(100, 100, 513, 700);
 		getContentPane().setLayout(null);
@@ -73,62 +72,91 @@ public class GUIDeleteSubject extends JDialog {
 		gbc_lblLp.gridy = 0;
 		panel.add(lblLp, gbc_lblLp);
 		
-		JLabel lblNazwaPrzedmiotu = new JLabel("Nazwa przedmiotu");
-		GridBagConstraints gbc_lblNazwaPrzedmiotu = new GridBagConstraints();
-		gbc_lblNazwaPrzedmiotu.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNazwaPrzedmiotu.gridx = 2;
-		gbc_lblNazwaPrzedmiotu.gridy = 0;
-		panel.add(lblNazwaPrzedmiotu, gbc_lblNazwaPrzedmiotu);
+		JLabel lblImie = new JLabel("Imie");
+		GridBagConstraints gbc_lblImie = new GridBagConstraints();
+		gbc_lblImie.insets = new Insets(0, 0, 5, 5);
+		gbc_lblImie.gridx = 2;
+		gbc_lblImie.gridy = 0;
+		panel.add(lblImie, gbc_lblImie);
 		
-		JLabel lblOznaczeniePrzedmiotu = new JLabel("Oznaczenie przedmiotu");
-		GridBagConstraints gbc_lblOznaczeniePrzedmiotu = new GridBagConstraints();
-		gbc_lblOznaczeniePrzedmiotu.insets = new Insets(0, 0, 5, 5);
-		gbc_lblOznaczeniePrzedmiotu.gridx = 3;
-		gbc_lblOznaczeniePrzedmiotu.gridy = 0;
-		panel.add(lblOznaczeniePrzedmiotu, gbc_lblOznaczeniePrzedmiotu);
+		JLabel lblNazwisko = new JLabel("Nazwisko");
+		GridBagConstraints gbc_lblNazwisko = new GridBagConstraints();
+		gbc_lblNazwisko.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNazwisko.gridx = 3;
+		gbc_lblNazwisko.gridy = 0;
+		panel.add(lblNazwisko, gbc_lblNazwisko);
+		
+		JLabel lblPesel = new JLabel("Pesel");
+		GridBagConstraints gbc_lblPesel = new GridBagConstraints();
+		gbc_lblPesel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPesel.gridx = 4;
+		gbc_lblPesel.gridy = 0;
+		panel.add(lblPesel, gbc_lblPesel);
+		
+		JLabel lblNumerIndeksu = new JLabel("Numer indeksu");
+		GridBagConstraints gbc_lblNumerIndeksu = new GridBagConstraints();
+		gbc_lblNumerIndeksu.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNumerIndeksu.gridx = 5;
+		gbc_lblNumerIndeksu.gridy = 0;
+		panel.add(lblNumerIndeksu, gbc_lblNumerIndeksu);
+		
 		
 		
         try {
-        	BufferedReader file = new BufferedReader(new FileReader("przedmioty.txt"));
+        	BufferedReader file = new BufferedReader(new FileReader("studenci.txt"));
             String line = file.readLine();
             int i=0;
             while (line != null) {
-            String[] subjectData = line.split("\\s+");
-            
-            
-            JLabel lblPosition = new JLabel(Integer.toString(i+1));
-    		GridBagConstraints gbc_lblPosition = new GridBagConstraints();
-    		gbc_lblPosition.insets = new Insets(0, 0, 5, 5);
-    		gbc_lblPosition.gridx = 1;
-    		gbc_lblPosition.gridy = 1+i;
-    		panel.add(lblPosition, gbc_lblPosition);
-            
-			JLabel lblNazwa1 = new JLabel(subjectData[0]);
-			GridBagConstraints gbc_lblNazwa1 = new GridBagConstraints();
-			gbc_lblNazwa1.insets = new Insets(0, 0, 0, 5);
-			gbc_lblNazwa1.gridx = 2;
-			gbc_lblNazwa1.gridy = 1+i;
-			panel.add(lblNazwa1, gbc_lblNazwa1);
-		
-			JLabel lblOznaczenie1 = new JLabel(subjectData[1]);
-			GridBagConstraints gbc_lblOznaczenie1 = new GridBagConstraints();
-			gbc_lblOznaczenie1.insets = new Insets(0, 0, 0, 5);
-			gbc_lblOznaczenie1.gridx = 3;
-			gbc_lblOznaczenie1.gridy = 1+i;
-			panel.add(lblOznaczenie1, gbc_lblOznaczenie1);
-		
-			i++;
-
-			line = file.readLine();
-        	if(line==null) break;
+			    String[] studentData = line.split("\\s+");
+			    
+			    JLabel lblPosition = new JLabel(Integer.toString(i+1));
+				GridBagConstraints gbc_lblPosition = new GridBagConstraints();
+				gbc_lblPosition.insets = new Insets(0, 0, 5, 5);
+				gbc_lblPosition.gridx = 1;
+				gbc_lblPosition.gridy = 1+i;
+				panel.add(lblPosition, gbc_lblPosition);
+			    
+				JLabel lblNazwa1 = new JLabel(studentData[0]);
+				GridBagConstraints gbc_lblNazwa1 = new GridBagConstraints();
+				gbc_lblNazwa1.insets = new Insets(0, 0, 0, 5);
+				gbc_lblNazwa1.gridx = 2;
+				gbc_lblNazwa1.gridy = 1+i;
+				panel.add(lblNazwa1, gbc_lblNazwa1);
+			
+				JLabel lblOznaczenie1 = new JLabel(studentData[1]);
+				GridBagConstraints gbc_lblOznaczenie1 = new GridBagConstraints();
+				gbc_lblOznaczenie1.insets = new Insets(0, 0, 0, 5);
+				gbc_lblOznaczenie1.gridx = 3;
+				gbc_lblOznaczenie1.gridy = 1+i;
+				panel.add(lblOznaczenie1, gbc_lblOznaczenie1);
+				
+				JLabel lblPesele = new JLabel(studentData[2]);
+				GridBagConstraints gbc_lblPodPeselem = new GridBagConstraints();
+				gbc_lblPodPeselem.insets = new Insets(0, 0, 5, 5);
+				gbc_lblPodPeselem.gridx = 4;
+				gbc_lblPodPeselem.gridy = 1+i;
+				panel.add(lblPesele, gbc_lblPodPeselem);
+				
+				JLabel lblIndeksy = new JLabel(studentData[3]);
+				GridBagConstraints gbc_lblPodIndeksem = new GridBagConstraints();
+				gbc_lblPodIndeksem.insets = new Insets(0, 0, 5, 5);
+				gbc_lblPodIndeksem.gridx = 5;
+				gbc_lblPodIndeksem.gridy = 1+i;
+				panel.add(lblIndeksy, gbc_lblPodIndeksem);
+			
+				i++;
+			
+				line = file.readLine();
+				if(line==null) break;
         	}
             file.close();
             
         }catch (IOException e1) {
+       
         	e1.printStackTrace();
         	
         }
-		
+
 		Panel panel_1 = new Panel();
 		panel_1.setBounds(0, 628, 497, 33);
 		getContentPane().add(panel_1);
@@ -137,9 +165,9 @@ public class GUIDeleteSubject extends JDialog {
 		JButton btnWr = new JButton("Wr\u00F3\u0107");
 		btnWr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GUISubjects guiSubjects= new GUISubjects();
-				guiSubjects.setLocationRelativeTo(null);
-				guiSubjects.setVisible(true);
+				GUIStudents guiStudents =new GUIStudents();
+				guiStudents.setLocationRelativeTo(null);
+				guiStudents.setVisible(true);
 				dispose();
 				
 			}
@@ -147,7 +175,7 @@ public class GUIDeleteSubject extends JDialog {
 		btnWr.setBounds(412, 5, 75, 23);
 		panel_1.add(btnWr);
 		
-		JLabel lblUsuPozycjNumer = new JLabel("Usu\u0144 pozycj\u0119 numer:");
+		JLabel lblUsuPozycjNumer = new JLabel("Usu\u0144 pozycj\u0119 numer: ");
 		lblUsuPozycjNumer.setBounds(10, 9, 138, 14);
 		panel_1.add(lblUsuPozycjNumer);
 		
@@ -161,12 +189,12 @@ public class GUIDeleteSubject extends JDialog {
 			public void actionPerformed(ActionEvent e){
 				dispose();
 				try {
-					useful.deleteLine("przedmioty.txt", Integer.parseInt(deletePositionTextField.getText()) );
+					useful.deleteLine("studenci.txt", Integer.parseInt(deletePositionTextField.getText()) );
 					
 					JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta³a usuniêta");
-					GUIDeleteSubject dialog;
+					GUIStudentDelete dialog;
 					try {
-						dialog = new GUIDeleteSubject();
+						dialog = new GUIStudentDelete();
 						dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);			
 						dialog.setLocationRelativeTo(null);
 						dialog.setVisible(true);
@@ -176,9 +204,9 @@ public class GUIDeleteSubject extends JDialog {
 					}
 				} catch (NumberFormatException e1) {
 					JOptionPane.showMessageDialog(getContentPane(),"W tym polu musisz wprowadziæ liczbê");
-					GUIDeleteSubject dialog;
+					GUIStudentDelete dialog;
 					try {
-						dialog = new GUIDeleteSubject();
+						dialog = new GUIStudentDelete();
 						dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);			
 						dialog.setLocationRelativeTo(null);
 						dialog.setVisible(true);
@@ -206,10 +234,11 @@ public class GUIDeleteSubject extends JDialog {
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblUsuwaniePrzedmiotu = new JLabel("Usuwanie przedmiotu");
-		lblUsuwaniePrzedmiotu.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUsuwaniePrzedmiotu.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblUsuwaniePrzedmiotu.setBounds(69, 11, 364, 40);
-		panel_2.add(lblUsuwaniePrzedmiotu);
+		JLabel lblUsuwanieStudenta = new JLabel("Usuwanie studenta");
+		lblUsuwanieStudenta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUsuwanieStudenta.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblUsuwanieStudenta.setBounds(69, 11, 364, 40);
+		panel_2.add(lblUsuwanieStudenta);
 	}
+
 }

@@ -7,8 +7,6 @@ public class Person {
         this.name = name;
     }
 
-    private String name;
-
     public String getSurname() {
         return surname;
     }
@@ -17,16 +15,16 @@ public class Person {
         this.surname = surname;
     }
 
-    private String surname;
-
-    public int getPesel() {
+    public String getPesel() {
         return pesel;
     }
 
-    public void setPesel(int pesel) {
+    public void setPesel(String pesel) {
         this.pesel = pesel;
     }
 
-    private int pesel;
 
+    private String pesel;
+    private String surname;
+    private String name;
 }

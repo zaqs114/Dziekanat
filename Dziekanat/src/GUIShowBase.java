@@ -44,12 +44,30 @@ public class GUIShowBase extends JDialog {
 		JButton btnNewButton = new JButton("Student\u00F3w");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				GUIShowStudents guiShowStudents;
+				try {
+					guiShowStudents = new GUIShowStudents();
+					guiShowStudents.setLocationRelativeTo(null);
+					guiShowStudents.setVisible(true);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButton.setBounds(10, 190, 101, 23);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Pracownik\u00F3w");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUIShowEmployees guiShowEmployees = new GUIShowEmployees();
+				guiShowEmployees.setLocationRelativeTo(null);
+				guiShowEmployees.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setBounds(121, 190, 126, 23);
 		getContentPane().add(btnNewButton_1);
 		

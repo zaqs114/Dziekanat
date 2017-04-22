@@ -73,18 +73,14 @@ public class Useful {
 	    	
 	    	while(line2!=null){
 	    		line2=readFile.readLine();
+	    		if(line2==null) break;
 	    		writeTmpFile.write(line2+"\n");
-	    		line2 = readFile.readLine();
-         	if(line2==null) break;
-	    	}
+	    		
+	    }
 	    }
 	    finally{
-	        if(writeTmpFile!= null){
-	            writeTmpFile.close();
-	        }
-	        if(readFile!= null){
+	    		writeTmpFile.close();
 	            readFile.close();
-	        }
 	    }
 	 file.delete();
 	 tmpFile.renameTo(file);

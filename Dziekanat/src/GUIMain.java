@@ -23,9 +23,13 @@ public class GUIMain extends JDialog {
 	 * INITIALIZATION
 	 */
 	public void initialization(){
-		File file = new File("przedmioty.txt");
+		File przedmioty = new File("przedmioty.txt");
+		File studenci = new File("studenci.txt");
+		File pracownicy = new File("pracownicy.txt");
 		try {
-			file.createNewFile();
+			przedmioty.createNewFile();
+			studenci.createNewFile();
+			pracownicy.createNewFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
