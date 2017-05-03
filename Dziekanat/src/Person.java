@@ -15,16 +15,16 @@ public class Person {
         this.surname = surname;
     }
 
-    public String getPesel() {
+    public int getPesel() {
         return pesel;
     }
 
-    public void setPesel(String pesel) {
+    public void setPesel(int pesel) {
         this.pesel = pesel;
     }
 
 
-    private String pesel;
+    private int pesel;
     private String surname;
     private String name;
 }
