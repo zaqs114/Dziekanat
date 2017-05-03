@@ -156,17 +156,17 @@ public class GUIDeleteMathEmployee extends JDialog {
 				try{
 				dispose();
 				Employee.mathEmployeeList.remove(Integer.parseInt(deletePositionTextField.getText())-1);
-				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta�a usuni�ta");
+				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta\u0142a usuni\u0119ta");
 				GUIDeleteMathEmployee guiDeleteMathEmployee  = new GUIDeleteMathEmployee();
 				guiDeleteMathEmployee.setLocationRelativeTo(null);
 				guiDeleteMathEmployee.setVisible(true);
 				}catch(NumberFormatException e1){
-					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycj� kt�r� chcesz usun��");
+					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycj\u0119 kt\u00F3r\u0105 chcesz usun\u0105\u0107");
 					GUIDeleteMathEmployee guiDeleteMathEmployee = new GUIDeleteMathEmployee();
 					guiDeleteMathEmployee.setLocationRelativeTo(null);
 					guiDeleteMathEmployee.setVisible(true);
 				}catch(IndexOutOfBoundsException e2){
-					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na li�cie");
+					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na li\u015Bcie");
 					GUIDeleteMathEmployee guiDeleteMathEmployee = new GUIDeleteMathEmployee();
 					guiDeleteMathEmployee.setLocationRelativeTo(null);
 					guiDeleteMathEmployee.setVisible(true);

@@ -58,10 +58,10 @@ public class GUIAddSubject extends JDialog {
 			btnDodajPrzedmiot.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (useful.isFieldEmpty(nazwaPrzedmiotuTextField.getText())||useful.isFieldEmpty(oznaczeniePrzedmiotuTextField.getText())) {
-	                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
+	                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog\u0105 by\u0107 puste!");
 				}else{
 					Subjects.subjectsList.add(new Subjects(nazwaPrzedmiotuTextField.getText(), oznaczeniePrzedmiotuTextField.getText()));
-					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano przedmiot.");
+					JOptionPane.showMessageDialog(getContentPane(), "Pomy\u015Blnie dodano przedmiot.");
 					dispose();
 					GUIAddSubject guiAddSubject = new GUIAddSubject();
 					guiAddSubject.setLocationRelativeTo(null);

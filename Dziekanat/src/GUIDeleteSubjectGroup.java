@@ -143,17 +143,17 @@ public class GUIDeleteSubjectGroup extends JDialog {
 				try{
 				dispose();
 				SubjectGroups.subjectGroupsList.remove(Integer.parseInt(deletePositionTextField.getText())-1);
-				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta³a usuniêta");
+				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta\u0142a usuni\u0119ta");
 				GUIDeleteSubjectGroup guiDeleteSubjectGroup = new GUIDeleteSubjectGroup();
 				guiDeleteSubjectGroup.setLocationRelativeTo(null);
 				guiDeleteSubjectGroup.setVisible(true);
 				}catch(NumberFormatException e1){
-					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycjê któr¹ chcesz usun¹æ");
+					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycj\u0119 kt\u00F3r\u0105 chcesz usun\u0105\u0107");
 					GUIDeleteSubjectGroup guiDeleteSubjectGroup = new GUIDeleteSubjectGroup();
 					guiDeleteSubjectGroup.setLocationRelativeTo(null);
 					guiDeleteSubjectGroup.setVisible(true);
 				}catch(IndexOutOfBoundsException e2){
-					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na liœcie");
+					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na li\u015Bcie");
 					GUIDeleteSubjectGroup guiDeleteSubjectGroup = new GUIDeleteSubjectGroup();
 					guiDeleteSubjectGroup.setLocationRelativeTo(null);
 					guiDeleteSubjectGroup.setVisible(true);

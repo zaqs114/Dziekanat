@@ -156,17 +156,17 @@ public class GUIDeleteWeekendStudent extends JDialog {
 				try{
 				dispose();
 				Student.weekendStudentList.remove(Integer.parseInt(deletePositionTextField.getText())-1);
-				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta³a usuniêta");
+				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta\u0142a usuni\u0119ta");
 				GUIDeleteWeekendStudent guiDeleteWeekendStudent = new GUIDeleteWeekendStudent();
 				guiDeleteWeekendStudent.setLocationRelativeTo(null);
 				guiDeleteWeekendStudent.setVisible(true);
 				}catch(NumberFormatException e1){
-					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycjê któr¹ chcesz usun¹æ");
+					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycj\u0119 kt\u00F3r\u0105 chcesz usun\u0105\u0107");
 					GUIDeleteWeekendStudent guiDeleteWeekendStudent = new GUIDeleteWeekendStudent();
 					guiDeleteWeekendStudent.setLocationRelativeTo(null);
 					guiDeleteWeekendStudent.setVisible(true);
 				}catch(IndexOutOfBoundsException e2){
-					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na liœcie");
+					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na li\u015Bcie");
 					GUIDeleteWeekendStudent guiDeleteWeekendStudent = new GUIDeleteWeekendStudent();
 					guiDeleteWeekendStudent.setLocationRelativeTo(null);
 					guiDeleteWeekendStudent.setVisible(true);

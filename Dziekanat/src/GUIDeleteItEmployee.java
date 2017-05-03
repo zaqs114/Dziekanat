@@ -157,17 +157,17 @@ public class GUIDeleteItEmployee extends JDialog {
 				try{
 				dispose();
 				Employee.itEmployeeList.remove(Integer.parseInt(deletePositionTextField.getText())-1);
-				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta�a usuni�ta");
+				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta\u0142a usuni\u0119ta");
 				GUIDeleteItEmployee guiDeleteOtEmployee  = new GUIDeleteItEmployee();
 				guiDeleteOtEmployee.setLocationRelativeTo(null);
 				guiDeleteOtEmployee.setVisible(true);
 				}catch(NumberFormatException e1){
-					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycj� kt�r� chcesz usun��");
+					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycj\u0119 kt\u00F3r\u0105 chcesz usun\u0105\u0107");
 					GUIDeleteItEmployee guiDeleteOtEmployee = new GUIDeleteItEmployee();
 					guiDeleteOtEmployee.setLocationRelativeTo(null);
 					guiDeleteOtEmployee.setVisible(true);
 				}catch(IndexOutOfBoundsException e2){
-					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na li�cie");
+					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na li\u015Bcie");
 					GUIDeleteItEmployee guiDeleteOtEmployee = new GUIDeleteItEmployee();
 					guiDeleteOtEmployee.setLocationRelativeTo(null);
 					guiDeleteOtEmployee.setVisible(true);

@@ -104,12 +104,12 @@ public class GUIAddEmployee extends JDialog {
 					JOptionPane.showMessageDialog(getContentPane(),"Wybierz rodzaj pracownika");
 				}
 				else if (useful.isFieldEmpty(imieTextField.getText())||useful.isFieldEmpty(nazwiskoTextField.getText())||useful.isFieldEmpty(peselTextField.getText())||useful.isFieldEmpty(salaryTextField.getText())) {
-                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
+                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog\u0105 by\u0107 puste!");
 				}else{
 				if(rdbtnInformatyk.isSelected()==true){
 					try{
 					Employee.itEmployeeList.add(new ITEmployee(imieTextField.getText(), nazwiskoTextField.getText(), Integer.parseInt(peselTextField.getText()), Integer.parseInt(salaryTextField.getText())));
-					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano pracownika.");
+					JOptionPane.showMessageDialog(getContentPane(), "Pomy\u015Blnie dodano pracownika.");
 					
 					dispose();
 					GUIAddEmployee guiAddEmployee = new GUIAddEmployee();
@@ -117,21 +117,21 @@ public class GUIAddEmployee extends JDialog {
 					guiAddEmployee.setVisible(true);
 					
 					}catch(NumberFormatException e1){
-						JOptionPane.showMessageDialog(getContentPane(), "Pole p³aca oraz pesel musi byæ liczb¹ ca³kowit¹!");
+						JOptionPane.showMessageDialog(getContentPane(), "Pole p\u0142aca oraz pesel musi by\u0107 liczb\u0105 ca³kowit\u0105!");
 						
 					}
 				}
 				if(rdbtnMatematyk.isSelected()==true){
 					try{
 					Employee.mathEmployeeList.add(new MathEmployee(imieTextField.getText(), nazwiskoTextField.getText(), Integer.parseInt(peselTextField.getText()), Integer.parseInt(salaryTextField.getText())));				
-					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano pracownika.");
+					JOptionPane.showMessageDialog(getContentPane(), "Pomy\u015Blnie dodano pracownika.");
 					
 					dispose();
 					GUIAddEmployee guiAddEmployee = new GUIAddEmployee();
 					guiAddEmployee.setLocationRelativeTo(null);
 					guiAddEmployee.setVisible(true);
 					}catch(NumberFormatException e1){
-						JOptionPane.showMessageDialog(getContentPane(), "Pole p³aca oraz pesel musi byæ liczb¹ ca³kowit¹!");
+						JOptionPane.showMessageDialog(getContentPane(), "Pole p\u0142aca oraz pesel musi by\u0107 liczb\u0105 ca³kowit\u0105!");
 				
 					}
 				

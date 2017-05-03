@@ -107,31 +107,31 @@ public class GUIAddStudent extends JDialog {
 					JOptionPane.showMessageDialog(getContentPane(),"Wybierz rodzaj studenta");
 				}
 				else if (useful.isFieldEmpty(imieTextField.getText())||useful.isFieldEmpty(nazwiskoTextField.getText())||useful.isFieldEmpty(peselTextField.getText())||useful.isFieldEmpty(numerIndeksuTextField.getText())) {
-                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
+                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog\u0105 by\u0107 puste!");
 				}else{
 				if(rdbtnStudentDzienny.isSelected()==true){
 					try{
 					Student.dailyStudentList.add(new DailyStudent(imieTextField.getText(), nazwiskoTextField.getText(), Integer.parseInt(peselTextField.getText()), Integer.parseInt(numerIndeksuTextField.getText())));
-					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano studenta.");
+					JOptionPane.showMessageDialog(getContentPane(), "Pomy\u015Blnie dodano studenta.");
 					dispose();
 					GUIAddStudent guiAddStudent = new GUIAddStudent();
 					guiAddStudent.setLocationRelativeTo(null);
 					guiAddStudent.setVisible(true);
 					}catch(NumberFormatException e1){
-						JOptionPane.showMessageDialog(getContentPane(), "Pole indeks oraz pesel musi byæ liczb¹ ca³kowit¹!");
+						JOptionPane.showMessageDialog(getContentPane(), "Pole indeks oraz pesel musi by\u0105 liczb\u0105 ca³kowit\u0105!");
 						
 					}
 				}
 				if(rdbtnStudentZaoczny.isSelected()==true){
 					try{
 					Student.weekendStudentList.add(new WeekendStudent(imieTextField.getText(), nazwiskoTextField.getText(), Integer.parseInt(peselTextField.getText()), Integer.parseInt(numerIndeksuTextField.getText())));				
-					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano studenta.");
+					JOptionPane.showMessageDialog(getContentPane(), "Pomy\u015Blnie dodano studenta.");
 					dispose();
 					GUIAddStudent guiAddStudent = new GUIAddStudent();
 					guiAddStudent.setLocationRelativeTo(null);
 					guiAddStudent.setVisible(true);
 					}catch(NumberFormatException e1){
-						JOptionPane.showMessageDialog(getContentPane(), "Pole indeks oraz pesel musi byæ liczb¹ ca³kowit¹!");
+						JOptionPane.showMessageDialog(getContentPane(), "Pole indeks oraz pesel musi by\u0105 liczb\u0105 ca³kowit\u0105!");
 						
 						
 					}

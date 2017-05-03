@@ -139,7 +139,7 @@ public GUIAddSubjectGroup() {
     	public void actionPerformed(ActionEvent arg0) {
     		Useful useful = new Useful();
     		if (cbxPrzedmiot.getSelectedItem()==null ||txtSubjectID.getText()==null || cbxTypStudiow.getSelectedItem()==null|| cbxProwadzacy.getSelectedItem()==null || useful.isFieldEmpty(txtSubjectID.getText())) {
-                JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
+                JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog\u0105 by\u0107 puste!");
             }else{
             		if(cbxTypStudiow.getSelectedItem()=="Dzienne"){
             			ArrayList<String>namesOfStudents = new ArrayList<>();
@@ -163,7 +163,7 @@ public GUIAddSubjectGroup() {
         		 
         		SubjectGroups.subjectGroupsList.add(new SubjectGroups(cbxPrzedmiot.getSelectedItem().toString(), txtSubjectID.getText(), cbxTypStudiow.getSelectedItem().toString(), cbxProwadzacy.getSelectedItem().toString(), namesOfStudents));
     		    }
-    		 	JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano grupê przedmiotow¹.");
+    		 	JOptionPane.showMessageDialog(getContentPane(), "Pomy\u015Blnie dodano grup\u0119 przedmiotow\u0105.");
 				dispose();
 				GUIAddSubjectGroup guiAddSubjectGroup = new GUIAddSubjectGroup();
 				guiAddSubjectGroup.setLocationRelativeTo(null);
