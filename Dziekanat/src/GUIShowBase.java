@@ -1,5 +1,4 @@
 import java.awt.EventQueue;
-
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -51,9 +50,11 @@ public class GUIShowBase extends JDialog {
 					guiShowStudents.setLocationRelativeTo(null);
 					guiShowStudents.setVisible(true);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
+					
+				
 			}
 		});
 		btnNewButton.setBounds(10, 190, 101, 23);
@@ -81,7 +82,7 @@ public class GUIShowBase extends JDialog {
 					guiShowSubjects.setLocationRelativeTo(null);
 					guiShowSubjects.setVisible(true);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+
 					e1.printStackTrace();
 				}
 
@@ -91,6 +92,14 @@ public class GUIShowBase extends JDialog {
 		getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("List\u0119 grup przedmiotowych");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GUIShowSubjectGroups guiShowSubjectGroups = new GUIShowSubjectGroups();
+				guiShowSubjectGroups.setLocationRelativeTo(null);
+				guiShowSubjectGroups.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_3.setBounds(368, 190, 206, 23);
 		getContentPane().add(btnNewButton_3);
 		

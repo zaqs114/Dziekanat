@@ -4,7 +4,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -61,6 +60,7 @@ public class GUIModificationType extends JDialog {
 				guiStudents.setLocationRelativeTo(null); //ta linijka centruje okno
 				guiStudents.setVisible(true);
                 dispose();
+
 			}
 		});
 		btnStudenci.setBounds(10, 212, 89, 23);
@@ -69,9 +69,9 @@ public class GUIModificationType extends JDialog {
 		JButton btnPracownicy = new JButton("Pracownicy");
 		btnPracownicy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GUIEmployee guiEmployee = new GUIEmployee();
-				guiEmployee.setLocationRelativeTo(null);
-				guiEmployee.setVisible(true);
+				GUIEmployees guiEmployees = new GUIEmployees();
+				guiEmployees.setLocationRelativeTo(null);
+				guiEmployees.setVisible(true);
 				dispose();
 			}
 		});
@@ -91,6 +91,14 @@ public class GUIModificationType extends JDialog {
 		getContentPane().add(btnPrzedmioty);
 		
 		JButton btnGrupyPrzedmiotowe = new JButton("Grupy przedmiotowe");
+		btnGrupyPrzedmiotowe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUISubjectGroups guiSubjectGroups = new GUISubjectGroups();
+						guiSubjectGroups.setLocationRelativeTo(null);
+						guiSubjectGroups.setVisible(true);
+						dispose();
+			}
+		});
 		btnGrupyPrzedmiotowe.setBounds(335, 212, 163, 23);
 		getContentPane().add(btnGrupyPrzedmiotowe);
 

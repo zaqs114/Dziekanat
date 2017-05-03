@@ -1,47 +1,21 @@
 import java.awt.EventQueue;
-
 import javax.swing.JDialog;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class GUIMain extends JDialog {
 
-	/**
-	 * Launch the application.
-	 * @return 
-	 */
-	
-	/*
-	 * INITIALIZATION
-	 */
-	public void initialization(){
-		File przedmioty = new File("przedmioty.txt");
-		File studenci = new File("studenci.txt");
-		File pracownicy = new File("pracownicy.txt");
-		try {
-			przedmioty.createNewFile();
-			studenci.createNewFile();
-			pracownicy.createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					GUIMain dialog = new GUIMain();
-					dialog.initialization();
+					//dialog.initialization();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setLocationRelativeTo(null);
 					dialog.setVisible(true);
@@ -70,6 +44,13 @@ public class GUIMain extends JDialog {
 		getContentPane().add(btnWyjcie);
 		
 		JButton btnWywietlStatystyki = new JButton("Wy\u015Bwietl Statystyki");
+		btnWywietlStatystyki.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GUIShowStats guiShowStats = new GUIShowStats();
+				guiShowStats.setLocationRelativeTo(null);
+				guiShowStats.setVisible(true);
+			}
+		});
 		btnWywietlStatystyki.setBounds(293, 275, 147, 23);
 		getContentPane().add(btnWywietlStatystyki);
 		

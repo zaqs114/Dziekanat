@@ -1,58 +1,56 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Employee extends Person {
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
+    public static ArrayList<ITEmployee> itEmployeeList = new ArrayList<>();
+    public static ArrayList<MathEmployee> mathEmployeeList = new ArrayList<>();
     
-    public boolean isThereDuplicate(String phraseToCheck) throws IOException {
-
-        BufferedReader file = new BufferedReader(new FileReader("pracownicy.txt"));
-            String line = file.readLine();
-            while (line != null) {
-            	String[] employeeData = line.split("\\s+");
-            	if(phraseToCheck.equalsIgnoreCase(employeeData[2])==true){
-            		file.close();
-            		return true;
-            	}
-            	line = file.readLine();
-            	if(line==null) break;
-            	employeeData=line.split("\\s+");
-            }
-                file.close();
-                return false;
-    }
-
-    public void writeToFile() throws IOException{
-    	   
-    FileWriter employeeFile = new FileWriter("pracownicy.txt",true);
-        employeeFile.write(getName()+'\t');
-        employeeFile.write(getSurname()+'\t');
-        employeeFile.write(getPesel()+'\t');
-        employeeFile.write(getPosition()+'\t');
-        employeeFile.write(getSalary()+'\n');
-        
-       
-        employeeFile.close();
-    }
+public void writeToFile(){
+	
     
-    
-    private String position;
-    private String salary;
+	try {
+		FileWriter employeeFile = new FileWriter("pracownicy.txt");
+		for (int i = 0; i < Employee.itEmployeeList.size(); i++) {
 
+			employeeFile.write(Employee.itEmployeeList.get(i).getName()+'\t');
+			employeeFile.write(Employee.itEmployeeList.get(i).getSurname()+'\t');
+			employeeFile.write(Integer.toString(Employee.itEmployeeList.get(i).getPesel())+'\t');
+			employeeFile.write(Integer.toString(Employee.itEmployeeList.get(i).getSalary())+'\t'+"Informatyk"+'\n');
+			
+		}
+		employeeFile.close();
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+	
+	try {
+		FileWriter employeeFile = new FileWriter("pracownicy.txt", true);
+		for (int i = 0; i < Employee.mathEmployeeList.size(); i++) {
+
+			employeeFile.write(Employee.mathEmployeeList.get(i).getName()+'\t');
+			employeeFile.write(Employee.mathEmployeeList.get(i).getSurname()+'\t');
+			employeeFile.write(Integer.toString(Employee.mathEmployeeList.get(i).getPesel())+'\t');
+			employeeFile.write(Integer.toString(Employee.mathEmployeeList.get(i).getSalary())+'\t'+"Matematyk"+'\n');
+			
+		}
+		employeeFile.close();
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+    
+	
+}
+ 
+    private int salary;
 }

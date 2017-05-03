@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.RandomAccessFile;
+
 
 
 public class Useful {
@@ -28,33 +28,6 @@ public class Useful {
  
  public void deleteLine(String fileName, int lineToRemove)throws IOException{
 		
-	 /*
-	  * ten magiczny kod dziala i jest stad http://stackoverflow.com/questions/6477762/java-delete-line-from-text-file-by-overwriting-while-reading-it
-	  * 
-	  * RandomAccessFile raf = new RandomAccessFile(fileName, "rw");
-
-	    // Leave the n first lines unchanged.
-	    for (int i = 0; i < lineToRemove-1; i++)
-	        raf.readLine();
-
-	    // Shift remaining lines upwards.
-	    long writePos = raf.getFilePointer();
-	    raf.readLine();
-	    long readPos = raf.getFilePointer();
-
-	    byte[] buf = new byte[1024];
-	    int n;
-	    while (-1 != (n = raf.read(buf))) {
-	        raf.seek(writePos);
-	        raf.write(buf, 0, n);
-	        readPos += n;
-	        writePos += n;
-	        raf.seek(readPos);
-	    }
-
-	    raf.setLength(writePos);
-	    raf.close();
-	}*/
 		
 	 	File file = new File(fileName);
 		File tmpFile = new File("tmp"+fileName);

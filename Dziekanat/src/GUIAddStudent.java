@@ -1,19 +1,17 @@
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class GUIAddStudent extends JDialog {
 
@@ -22,6 +20,7 @@ public class GUIAddStudent extends JDialog {
 	private JTextField nazwiskoTextField;
 	private JTextField peselTextField;
 	private JTextField numerIndeksuTextField;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -54,70 +53,91 @@ public class GUIAddStudent extends JDialog {
 		}
 		
 		imieTextField = new JTextField();
-		imieTextField.setBounds(240, 99, 150, 20);
+		imieTextField.setBounds(238, 148, 150, 20);
 		contentPanel.add(imieTextField);
 		imieTextField.setColumns(10);
 		
 		nazwiskoTextField = new JTextField();
-		nazwiskoTextField.setBounds(240, 130, 150, 20);
+		nazwiskoTextField.setBounds(238, 179, 150, 20);
 		contentPanel.add(nazwiskoTextField);
 		nazwiskoTextField.setColumns(10);
 		
 		peselTextField = new JTextField();
-		peselTextField.setBounds(240, 161, 150, 20);
+		peselTextField.setBounds(238, 210, 150, 20);
 		contentPanel.add(peselTextField);
 		peselTextField.setColumns(10);
 		
 		numerIndeksuTextField = new JTextField();
-		numerIndeksuTextField.setBounds(240, 192, 150, 20);
+		numerIndeksuTextField.setBounds(238, 241, 150, 20);
 		contentPanel.add(numerIndeksuTextField);
 		numerIndeksuTextField.setColumns(10);
 		
 		JLabel lblImi = new JLabel("Imi\u0119");
-		lblImi.setBounds(84, 102, 46, 14);
+		lblImi.setBounds(82, 151, 46, 14);
 		contentPanel.add(lblImi);
 		
 		JLabel lblNazwisko = new JLabel("Nazwisko");
-		lblNazwisko.setBounds(84, 133, 69, 14);
+		lblNazwisko.setBounds(82, 182, 69, 14);
 		contentPanel.add(lblNazwisko);
 		
 		JLabel lblPesel = new JLabel("PESEL");
-		lblPesel.setBounds(84, 164, 46, 14);
+		lblPesel.setBounds(82, 213, 46, 14);
 		contentPanel.add(lblPesel);
 		
 		JLabel lblNumerIndeksu = new JLabel("Numer indeksu");
-		lblNumerIndeksu.setBounds(84, 195, 122, 14);
+		lblNumerIndeksu.setBounds(82, 244, 122, 14);
 		contentPanel.add(lblNumerIndeksu);
+		
+		JRadioButton rdbtnStudentDzienny = new JRadioButton("Student dzienny");
+		buttonGroup.add(rdbtnStudentDzienny);
+		rdbtnStudentDzienny.setBounds(76, 95, 109, 23);
+		contentPanel.add(rdbtnStudentDzienny);
+		
+		JRadioButton rdbtnStudentZaoczny = new JRadioButton("Student zaoczny");
+		buttonGroup.add(rdbtnStudentZaoczny);
+		rdbtnStudentZaoczny.setBounds(238, 95, 109, 23);
+		contentPanel.add(rdbtnStudentZaoczny);
 		
 		JButton btnDodaj = new JButton("Dodaj");
 		btnDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			Useful useful = new Useful();
-			Student student = new Student();
-			try{
-                if (useful.isFieldEmpty(imieTextField.getText())||useful.isFieldEmpty(nazwiskoTextField.getText())||useful.isFieldEmpty(peselTextField.getText())||useful.isFieldEmpty(numerIndeksuTextField.getText())) {
+				Useful useful = new Useful();
+				
+				if(rdbtnStudentZaoczny.isSelected()==false && rdbtnStudentDzienny.isSelected()==false){
+					JOptionPane.showMessageDialog(getContentPane(),"Wybierz rodzaj studenta");
+				}
+				else if (useful.isFieldEmpty(imieTextField.getText())||useful.isFieldEmpty(nazwiskoTextField.getText())||useful.isFieldEmpty(peselTextField.getText())||useful.isFieldEmpty(numerIndeksuTextField.getText())) {
                     JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
-                } else{
-                    if (student.isThereDuplicate(numerIndeksuTextField.getText()) == false) {
-                        student.setName(imieTextField.getText());
-                        student.setSurname(nazwiskoTextField.getText());
-                        student.setPesel(peselTextField.getText());
-                        student.setStudentId(numerIndeksuTextField.getText());
-                        student.writeToFile();
-                        JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano studenta.");
-                        GUIAddStudent guiAddStudent = new GUIAddStudent();
-                        guiAddStudent.setLocationRelativeTo(null);
-                        guiAddStudent.setVisible(true);
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(getContentPane(), "W bazie jest ju¿ student o tym numerze indeksu. Popraw numer indeksu i spróbuj ponownie.");
-                    }
-			}
-			}
-			catch (IOException e1) {
-                e1.printStackTrace();
-			}
-			}
+				}else{
+				if(rdbtnStudentDzienny.isSelected()==true){
+					try{
+					Student.dailyStudentList.add(new DailyStudent(imieTextField.getText(), nazwiskoTextField.getText(), Integer.parseInt(peselTextField.getText()), Integer.parseInt(numerIndeksuTextField.getText())));
+					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano studenta.");
+					dispose();
+					GUIAddStudent guiAddStudent = new GUIAddStudent();
+					guiAddStudent.setLocationRelativeTo(null);
+					guiAddStudent.setVisible(true);
+					}catch(NumberFormatException e1){
+						JOptionPane.showMessageDialog(getContentPane(), "Pole indeks oraz pesel musi byæ liczb¹ ca³kowit¹!");
+						
+					}
+				}
+				if(rdbtnStudentZaoczny.isSelected()==true){
+					try{
+					Student.weekendStudentList.add(new WeekendStudent(imieTextField.getText(), nazwiskoTextField.getText(), Integer.parseInt(peselTextField.getText()), Integer.parseInt(numerIndeksuTextField.getText())));				
+					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano studenta.");
+					dispose();
+					GUIAddStudent guiAddStudent = new GUIAddStudent();
+					guiAddStudent.setLocationRelativeTo(null);
+					guiAddStudent.setVisible(true);
+					}catch(NumberFormatException e1){
+						JOptionPane.showMessageDialog(getContentPane(), "Pole indeks oraz pesel musi byæ liczb¹ ca³kowit¹!");
+						
+						
+					}
+				}
+				}
+				}
 		});
 		btnDodaj.setBounds(10, 327, 175, 23);
 		contentPanel.add(btnDodaj);
@@ -125,6 +145,7 @@ public class GUIAddStudent extends JDialog {
 		JButton btnWr = new JButton("Wr\u00F3\u0107");
 		btnWr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				GUIStudents guiStudents = new GUIStudents();
 				guiStudents.setLocationRelativeTo(null);
 				guiStudents.setVisible(true);
@@ -133,5 +154,7 @@ public class GUIAddStudent extends JDialog {
 		});
 		btnWr.setBounds(240, 327, 184, 23);
 		contentPanel.add(btnWr);
+		
+		
 	}
 }

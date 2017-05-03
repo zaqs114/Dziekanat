@@ -1,21 +1,19 @@
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-import javax.swing.JTextField;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class GUIAddSubject extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
 	private JTextField nazwaPrzedmiotuTextField;
 	private JTextField oznaczeniePrzedmiotuTextField;
 
@@ -26,7 +24,6 @@ public class GUIAddSubject extends JDialog {
 		try {
 			GUIAddSubject dialog = new GUIAddSubject();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setLocationRelativeTo(null);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -37,76 +34,70 @@ public class GUIAddSubject extends JDialog {
 	 * Create the dialog.
 	 */
 	public GUIAddSubject() {
-		setBounds(100, 100, 450, 259);
-		getContentPane().setLayout(null);
+	Useful useful = new Useful();
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
 		{
-			JLabel lblDodawaniePrzedmiotu = new JLabel("Dodawanie przedmiotu");
-			lblDodawaniePrzedmiotu.setHorizontalAlignment(SwingConstants.CENTER);
-			lblDodawaniePrzedmiotu.setFont(new Font("Tahoma", Font.PLAIN, 30));
-			lblDodawaniePrzedmiotu.setBounds(51, 11, 345, 77);
-			getContentPane().add(lblDodawaniePrzedmiotu);
+			JButton btnWr = new JButton("Wr\u00F3\u0107");
+			btnWr.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					GUISubjects guiSubjects = new GUISubjects();
+					guiSubjects.setLocationRelativeTo(null);
+					guiSubjects.setVisible(true);
+					dispose();
+				}
+			});
+			btnWr.setBounds(223, 227, 201, 23);
+			contentPanel.add(btnWr);
+		}
+		{
+			JButton btnDodajPrzedmiot = new JButton("Dodaj przedmiot");
+			btnDodajPrzedmiot.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (useful.isFieldEmpty(nazwaPrzedmiotuTextField.getText())||useful.isFieldEmpty(oznaczeniePrzedmiotuTextField.getText())) {
+	                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
+				}else{
+					Subjects.subjectsList.add(new Subjects(nazwaPrzedmiotuTextField.getText(), oznaczeniePrzedmiotuTextField.getText()));
+					JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano przedmiot.");
+					dispose();
+					GUIAddSubject guiAddSubject = new GUIAddSubject();
+					guiAddSubject.setLocationRelativeTo(null);
+					guiAddSubject.setVisible(true);
+				}
+				}
+			});
+			
+			btnDodajPrzedmiot.setBounds(10, 227, 201, 23);
+			contentPanel.add(btnDodajPrzedmiot);
+		}
+		{
+			JLabel lblPrzedmioty = new JLabel("Dodaj przedmiot");
+			lblPrzedmioty.setHorizontalAlignment(SwingConstants.CENTER);
+			lblPrzedmioty.setFont(new Font("Tahoma", Font.PLAIN, 25));
+			lblPrzedmioty.setBounds(68, 11, 294, 45);
+			contentPanel.add(lblPrzedmioty);
+		}
+		{
+			nazwaPrzedmiotuTextField = new JTextField();
+			nazwaPrzedmiotuTextField.setBounds(255, 89, 117, 20);
+			contentPanel.add(nazwaPrzedmiotuTextField);
+			nazwaPrzedmiotuTextField.setColumns(10);
 		}
 		
-		nazwaPrzedmiotuTextField = new JTextField();
-		nazwaPrzedmiotuTextField.setBounds(233, 99, 163, 20);
-		getContentPane().add(nazwaPrzedmiotuTextField);
-		nazwaPrzedmiotuTextField.setColumns(10);
-		
 		oznaczeniePrzedmiotuTextField = new JTextField();
-		oznaczeniePrzedmiotuTextField.setBounds(233, 130, 163, 20);
-		getContentPane().add(oznaczeniePrzedmiotuTextField);
+		oznaczeniePrzedmiotuTextField.setBounds(255, 120, 117, 20);
+		contentPanel.add(oznaczeniePrzedmiotuTextField);
 		oznaczeniePrzedmiotuTextField.setColumns(10);
 		
 		JLabel lblNazwaPrzedmiotu = new JLabel("Nazwa przedmiotu");
-		lblNazwaPrzedmiotu.setBounds(51, 99, 105, 20);
-		getContentPane().add(lblNazwaPrzedmiotu);
+		lblNazwaPrzedmiotu.setBounds(68, 92, 143, 14);
+		contentPanel.add(lblNazwaPrzedmiotu);
 		
 		JLabel lblOznaczeniePrzedmiotu = new JLabel("Oznaczenie przedmiotu");
-		lblOznaczeniePrzedmiotu.setBounds(51, 133, 155, 14);
-		getContentPane().add(lblOznaczeniePrzedmiotu);
-		
-		JButton btnWr = new JButton("Wr\u00F3\u0107");
-		btnWr.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				GUISubjects guiSubjects = new GUISubjects();
-				guiSubjects.setLocationRelativeTo(null);
-				guiSubjects.setVisible(true);
-				dispose();
-			}
-		});
-		btnWr.setBounds(233, 187, 163, 23);
-		getContentPane().add(btnWr);
-		
-		JButton btnDodaj = new JButton("Dodaj");
-		btnDodaj.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Subjects subjects = new Subjects();
-                Useful useful = new Useful();
-                try {
-                    if (useful.isFieldEmpty(oznaczeniePrzedmiotuTextField.getText())||useful.isFieldEmpty(nazwaPrzedmiotuTextField.getText())) {
-                        JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
-                    } else{
-                        if (subjects.isThereDuplicate(oznaczeniePrzedmiotuTextField.getText()) == false) {
-                            subjects.setSubjectName(nazwaPrzedmiotuTextField.getText());
-                            subjects.setSubjectID(oznaczeniePrzedmiotuTextField.getText());
-                            subjects.writeToFile();
-                            JOptionPane.showMessageDialog(getContentPane(), "Pomyœlnie dodano przedmiot.");
-                            GUIAddSubject guiAddSubject = new GUIAddSubject();
-                            guiAddSubject.setLocationRelativeTo(null);
-                            guiAddSubject.setVisible(true);
-                            dispose();
-                        } else {
-                            JOptionPane.showMessageDialog(getContentPane(), "W bazie jest ju¿ przedmiot o tym ID. Zmieñ ID i spróbuj ponownie.");
-                        }
-                    }
-
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-			}
-		});
-		btnDodaj.setBounds(10, 187, 196, 23);
-		getContentPane().add(btnDodaj);
+		lblOznaczeniePrzedmiotu.setBounds(68, 123, 143, 14);
+		contentPanel.add(lblOznaczeniePrzedmiotu);
 	}
 }

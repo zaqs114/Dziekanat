@@ -1,12 +1,8 @@
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -20,14 +16,15 @@ public class GUIStudents extends JDialog {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		try {
+
 			GUIStudents dialog = new GUIStudents();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
 	}
+			
+				
+	
 
 	/**
 	 * Create the dialog.
@@ -46,8 +43,8 @@ public class GUIStudents extends JDialog {
 		lblStudenci.setBounds(72, 66, 294, 45);
 		contentPanel.add(lblStudenci);
 		
-		JButton button = new JButton("Dodaj");
-		button.addActionListener(new ActionListener() {
+		JButton btnDodaj = new JButton("Dodaj");
+		btnDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GUIAddStudent guiAddStudent= new GUIAddStudent();
 				guiAddStudent.setLocationRelativeTo(null);
@@ -55,38 +52,35 @@ public class GUIStudents extends JDialog {
 				dispose();
 			}
 		});
-		button.setBounds(10, 194, 194, 23);
-		contentPanel.add(button);
+		btnDodaj.setBounds(10, 194, 194, 23);
+		contentPanel.add(btnDodaj);
 		
-		JButton button_1 = new JButton("Usu\u0144");
-		button_1.addActionListener(new ActionListener() {
+		JButton btnUsun = new JButton("Usu\u0144");
+		btnUsun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GUIStudentDelete guiDeleteStudent;
-				try {
-					guiDeleteStudent = new GUIStudentDelete();
+				GUIDeleteStudent guiDeleteStudent= new GUIDeleteStudent();
 					guiDeleteStudent.setLocationRelativeTo(null);
 					guiDeleteStudent.setVisible(true);
 					dispose();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				
 			}
 		});
-		button_1.setBounds(230, 194, 194, 23);
-		contentPanel.add(button_1);
+		btnUsun.setBounds(230, 194, 194, 23);
+		contentPanel.add(btnUsun);
 		
-		JButton button_2 = new JButton("Wr\u00F3\u0107");
-		button_2.addActionListener(new ActionListener() {
+		JButton btnWroc = new JButton("Wr\u00F3\u0107");
+		btnWroc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Student student = new Student();
+				student.writeToFile();
+				
 				GUIModificationType guiModyficationType = new GUIModificationType();
 				guiModyficationType.setLocationRelativeTo(null);
 				guiModyficationType.setVisible(true);
 				dispose();
 			}
 		});
-		button_2.setBounds(10, 227, 414, 23);
-		getContentPane().add(button_2);
+		btnWroc.setBounds(10, 227, 414, 23);
+		getContentPane().add(btnWroc);
 	}
 }
