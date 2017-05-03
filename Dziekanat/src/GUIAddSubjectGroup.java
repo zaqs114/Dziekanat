@@ -149,9 +149,7 @@ public GUIAddSubjectGroup() {
             						namesOfStudents.add(checkBoxList[i].getLabel());
             					}
             				}
-	    		    if (cbxPrzedmiot.getSelectedItem()==null ||txtSubjectID.getText()==null || cbxTypStudiow.getSelectedItem()==null|| cbxProwadzacy.getSelectedItem()==null||useful.isFieldEmpty(txtSubjectID.getText())) {
-	                    JOptionPane.showMessageDialog(getContentPane(),"Pola nie mog¹ byæ puste!");
-	    		    }
+	    		    
     		    SubjectGroups.subjectGroupsList.add(new SubjectGroups(cbxPrzedmiot.getSelectedItem().toString(), txtSubjectID.getText(), cbxTypStudiow.getSelectedItem().toString(), cbxProwadzacy.getSelectedItem().toString(), namesOfStudents));
     		 
     		 	}if(cbxTypStudiow.getSelectedItem()=="Zaoczne"){

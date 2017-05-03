@@ -77,12 +77,12 @@ public class GUIDeleteItEmployee extends JDialog {
 		gbc_lblPesel.gridy = 0;
 		panelData.add(lblPesel, gbc_lblPesel);
 		
-		JLabel lblP³aca = new JLabel("Wynagrodzenie (w PLN)");
-		GridBagConstraints gbc_lblP³aca = new GridBagConstraints();
-		gbc_lblP³aca.insets = new Insets(0, 0, 5, 5);
-		gbc_lblP³aca.gridx = 5;
-		gbc_lblP³aca.gridy = 0;
-		panelData.add(lblP³aca, gbc_lblP³aca);
+		JLabel lblPlaca = new JLabel("Wynagrodzenie (w PLN)");
+		GridBagConstraints gbc_lblPlaca = new GridBagConstraints();
+		gbc_lblPlaca.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPlaca.gridx = 5;
+		gbc_lblPlaca.gridy = 0;
+		panelData.add(lblPlaca, gbc_lblPlaca);
 		
 		
 		
@@ -157,17 +157,17 @@ public class GUIDeleteItEmployee extends JDialog {
 				try{
 				dispose();
 				Employee.itEmployeeList.remove(Integer.parseInt(deletePositionTextField.getText())-1);
-				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zosta³a usuniêta");
+				JOptionPane.showMessageDialog(getContentPane(),"Pozycja zostaï¿½a usuniï¿½ta");
 				GUIDeleteItEmployee guiDeleteOtEmployee  = new GUIDeleteItEmployee();
 				guiDeleteOtEmployee.setLocationRelativeTo(null);
 				guiDeleteOtEmployee.setVisible(true);
 				}catch(NumberFormatException e1){
-					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycjê któr¹ chcesz usun¹æ");
+					JOptionPane.showMessageDialog(getContentPane(),"Wpisz pozycjï¿½ ktï¿½rï¿½ chcesz usunï¿½ï¿½");
 					GUIDeleteItEmployee guiDeleteOtEmployee = new GUIDeleteItEmployee();
 					guiDeleteOtEmployee.setLocationRelativeTo(null);
 					guiDeleteOtEmployee.setVisible(true);
 				}catch(IndexOutOfBoundsException e2){
-					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na liœcie");
+					JOptionPane.showMessageDialog(getContentPane(),"Takiej pozycji nie ma na liï¿½cie");
 					GUIDeleteItEmployee guiDeleteOtEmployee = new GUIDeleteItEmployee();
 					guiDeleteOtEmployee.setLocationRelativeTo(null);
 					guiDeleteOtEmployee.setVisible(true);
